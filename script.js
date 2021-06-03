@@ -1,8 +1,11 @@
 let lastOperand = 0;
 let operation = null;
 let result = 0;
+let expression = '';
+let count = 1;
 
 const inputWindow = document.getElementById('inputWindow');
+const textArea = document.getElementById('historyArea');
 
 // События нажатия на цифры и на очистку поля
 document.getElementById('btn_0').addEventListener('click', function () {
@@ -50,13 +53,14 @@ document.getElementById('btn_clr').addEventListener('click', function () {
     operation = null;
     inputWindow.value = '';
     result = 0;
-    nowVal = 0;
+    expression = '';
 });
 
 // Кнопки операций
 document.getElementById('btn_sum').addEventListener('click', function () {
     lastOperand = parseFloat(inputWindow.value);
     operation = 'sum';
+    expression += inputWindow.value + ' + ';
     inputWindow.value = '';
 });
 
@@ -64,29 +68,35 @@ document.getElementById('btn_sub').addEventListener('click', function () {
     
     lastOperand = parseFloat(inputWindow.value);
     operation = 'sub';
+    expression += inputWindow.value + ' - ';
     inputWindow.value = '';
 });
 
 document.getElementById('btn_mul').addEventListener('click', function () {
     lastOperand = parseFloat(inputWindow.value);
     operation = 'mul';
+    expression += inputWindow.value + ' * ';
     inputWindow.value = '';
 });
 
 document.getElementById('btn_div').addEventListener('click', function () {
     lastOperand = parseFloat(inputWindow.value);
     operation = 'div';
+    expression += inputWindow.value + ' / ';
     inputWindow.value = '';
 });
 
 document.getElementById('btn_sqrt').addEventListener('click', function () {
     result = Math.sqrt(parseFloat(inputWindow.value));
     operation = null;
+    textArea.value = '---------\n' + '√' + inputWindow.value + ' = ' + result + '\n' + textArea.value;
     inputWindow.value = result;
 });
 
 document.getElementById('btn_change').addEventListener('click', function () {
-    inputWindow.value = -parseFloat(inputWindow.value); 
+    if (inputWindow.value === '-') inputWindow.value = '';
+    else if (inputWindow.value[0] === '-') inputWindow.value = inputWindow.value.substring(inputWindow.value.indexOf('-') + 1);
+    else inputWindow.value = '-' + inputWindow.value; 
 });
 
 document.getElementById('btn_point').addEventListener('click', function () {
@@ -99,24 +109,36 @@ document.getElementById('btn_calc').addEventListener('click', function () {
             result = lastOperand + parseFloat(inputWindow.value);
             operation = null;
             lastOperand = result;
+            expression += inputWindow.value + ' = ' + result;
+            textArea.value = '---------\n' + expression + '\n' + textArea.value;
+            expression = '';
             inputWindow.value = result;
             break;
         case 'sub':
             result = lastOperand - parseFloat(inputWindow.value);
             operation = null;
             lastOperand = result;
+            expression += inputWindow.value + ' = ' + result;
+            textArea.value = '---------\n' + expression + '\n' + textArea.value;
+            expression = '';
             inputWindow.value = result;
             break;
         case 'mul':
             result = lastOperand * parseFloat(inputWindow.value);
             operation = null;
             lastOperand = result;
+            expression += inputWindow.value + ' = ' + result;
+            textArea.value = '---------\n' + expression + '\n' + textArea.value;
+            expression = '';
             inputWindow.value = result;
             break;
         case 'div':
             result = lastOperand / parseFloat(inputWindow.value);
             operation = null;
             lastOperand = result;
+            expression += inputWindow.value + ' = ' + result;
+            textArea.value = '---------\n' + expression + '\n' + textArea.value;
+            expression = '';
             inputWindow.value = result;
             break;
     }

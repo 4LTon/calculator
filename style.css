@@ -59,3 +59,16 @@ body {
     color: #fff;
     transition: .2s linear;
 }
+
+#historyArea {
+    background-color: #1a8c77;
+    resize: none;
+    border: #1b6a5b solid 2px;
+    color: #fff;
+    font-size: 14px;
+    width: 100%;
+}
+
+#historyArea:focus {
+    outline: none;
+}
