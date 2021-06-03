@@ -5,4 +5,4 @@
 
   Fork: https://github.com/4LTon/php/tree/master/bjs
   P.S. По непонятной мне причине, возникает ошибка:
-    `fatal: repository 'https://github.com/4LTon/php/tree/master/bjs/07_Number_and_string/' not found`
+    `fatal: repository 'https://github.com/4LTon/php/' not found`
