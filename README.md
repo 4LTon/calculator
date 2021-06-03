@@ -3,6 +3,6 @@
   * Если пользователь после выбора операции не укажет число и нажмет на '=', то результат будет NaN.
   * Можно поставить более чем одну точку.
 
-  Fork: https://github.com/4LTon/php/tree/master/bjs
+  Fork: https://github.com/4LTon/php/
   P.S. По непонятной мне причине, возникает ошибка:
     `fatal: repository 'https://github.com/4LTon/php/' not found`
