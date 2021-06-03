@@ -1,8 +1,10 @@
 let lastOperand = 0;
 let operation = null;
+let result = 0;
 
 const inputWindow = document.getElementById('inputWindow');
 
+// События нажатия на цифры и на очистку поля
 document.getElementById('btn_0').addEventListener('click', function () {
     inputWindow.value += '0';
 });
@@ -47,56 +49,75 @@ document.getElementById('btn_clr').addEventListener('click', function () {
     lastOperand = 0;
     operation = null;
     inputWindow.value = '';
+    result = 0;
+    nowVal = 0;
 });
 
 // Кнопки операций
 document.getElementById('btn_sum').addEventListener('click', function () {
-    lastOperand = parseInt(inputWindow.value);
+    lastOperand = parseFloat(inputWindow.value);
     operation = 'sum';
     inputWindow.value = '';
 });
 
 document.getElementById('btn_sub').addEventListener('click', function () {
-    lastOperand = parseInt(inputWindow.value);
+    
+    lastOperand = parseFloat(inputWindow.value);
     operation = 'sub';
     inputWindow.value = '';
 });
 
 document.getElementById('btn_mul').addEventListener('click', function () {
-    lastOperand = parseInt(inputWindow.value);
+    lastOperand = parseFloat(inputWindow.value);
     operation = 'mul';
     inputWindow.value = '';
 });
 
 document.getElementById('btn_div').addEventListener('click', function () {
-    lastOperand = parseInt(inputWindow.value);
+    lastOperand = parseFloat(inputWindow.value);
     operation = 'div';
     inputWindow.value = '';
 });
 
+document.getElementById('btn_sqrt').addEventListener('click', function () {
+    result = Math.sqrt(parseFloat(inputWindow.value));
+    operation = null;
+    inputWindow.value = result;
+});
+
+document.getElementById('btn_change').addEventListener('click', function () {
+    inputWindow.value = -parseFloat(inputWindow.value); 
+});
+
+document.getElementById('btn_point').addEventListener('click', function () {
+    inputWindow.value += '.';
+});
+
 document.getElementById('btn_calc').addEventListener('click', function () {
-    if (operation === 'sum') {
-        const result = lastOperand + parseInt(inputWindow.value);
-        operation = null;
-        lastOperand = result;
-        inputWindow.value = result;
-    } 
-    else if (operation === 'sub') {
-        const result = lastOperand - parseInt(inputWindow.value);
-        operation = null;
-        lastOperand = result;
-        inputWindow.value = result;
-    }
-    else if (operation === 'mul') {
-        const result = lastOperand * parseInt(inputWindow.value);
-        operation = null;
-        lastOperand = result;
-        inputWindow.value = result;
-    }
-    else if (operation === 'div') {
-        const result = lastOperand / parseInt(inputWindow.value);
-        operation = null;
-        lastOperand = result;
-        inputWindow.value = result;
+    switch (operation) {
+        case 'sum':
+            result = lastOperand + parseFloat(inputWindow.value);
+            operation = null;
+            lastOperand = result;
+            inputWindow.value = result;
+            break;
+        case 'sub':
+            result = lastOperand - parseFloat(inputWindow.value);
+            operation = null;
+            lastOperand = result;
+            inputWindow.value = result;
+            break;
+        case 'mul':
+            result = lastOperand * parseFloat(inputWindow.value);
+            operation = null;
+            lastOperand = result;
+            inputWindow.value = result;
+            break;
+        case 'div':
+            result = lastOperand / parseFloat(inputWindow.value);
+            operation = null;
+            lastOperand = result;
+            inputWindow.value = result;
+            break;
     }
 });

@@ -15,7 +15,7 @@
             <div class="form-group">
                 <div class="card" id="calc">
                     <div class="card-body">
-                        <input class="form-control input-window" id="inputWindow" value="">
+                        <input class="form-control input-window" id="inputWindow" value="" placeholder="0">
                         <div class="row no-gutters">
                             <div class="col">
                                 <button class="btn form-control" id="btn_clr">C</button>
@@ -63,19 +63,26 @@
                                 <button class="oper btn form-control" id="btn_mul">*</button>
                             </div>
                         </div>
-                        <!-- Операции -->
+                        <div class="row no-gutters">
+                            <div class="col-9">
+                                <button class="numb btn form-control" id="btn_0">0</button>
+                            </div>
+                            <div class="col">
+                                <button class="oper btn form-control" id="btn_div">/</button>
+                            </div>
+                        </div>
                         <div class="row no-gutters">
                             <div class="col">
                                 <button class="oper btn form-control" id="btn_calc">=</button>
                             </div>
                             <div class="col">
-                                <button class="numb btn form-control" id="btn_0">0</button>
+                                <button class="oper btn form-control" id="btn_point">.</button>
+                            </div>
+                            <div class="col">
+                                <button class="oper btn form-control" id="btn_change">&#177;</button>
                             </div>
                             <div class="col">
                                 <button class="oper btn form-control" id="btn_sqrt">&#8730;</button>
-                            </div>
-                            <div class="col">
-                                <button class="oper btn form-control" id="btn_div">/</button>
                             </div>
                         </div>
                     </div>
