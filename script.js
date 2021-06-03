@@ -3,6 +3,9 @@ let operation = null;
 
 const inputWindow = document.getElementById('inputWindow');
 
+document.getElementById('btn_0').addEventListener('click', function () {
+    inputWindow.value += '0';
+});
 
 document.getElementById('btn_1').addEventListener('click', function () {
     inputWindow.value += '1';
@@ -53,11 +56,47 @@ document.getElementById('btn_sum').addEventListener('click', function () {
     inputWindow.value = '';
 });
 
+document.getElementById('btn_sub').addEventListener('click', function () {
+    lastOperand = parseInt(inputWindow.value);
+    operation = 'sub';
+    inputWindow.value = '';
+});
+
+document.getElementById('btn_mul').addEventListener('click', function () {
+    lastOperand = parseInt(inputWindow.value);
+    operation = 'mul';
+    inputWindow.value = '';
+});
+
+document.getElementById('btn_div').addEventListener('click', function () {
+    lastOperand = parseInt(inputWindow.value);
+    operation = 'div';
+    inputWindow.value = '';
+});
+
 document.getElementById('btn_calc').addEventListener('click', function () {
     if (operation === 'sum') {
         const result = lastOperand + parseInt(inputWindow.value);
         operation = null;
-        lastOperand = 0;
+        lastOperand = result;
+        inputWindow.value = result;
+    } 
+    else if (operation === 'sub') {
+        const result = lastOperand - parseInt(inputWindow.value);
+        operation = null;
+        lastOperand = result;
+        inputWindow.value = result;
+    }
+    else if (operation === 'mul') {
+        const result = lastOperand * parseInt(inputWindow.value);
+        operation = null;
+        lastOperand = result;
+        inputWindow.value = result;
+    }
+    else if (operation === 'div') {
+        const result = lastOperand / parseInt(inputWindow.value);
+        operation = null;
+        lastOperand = result;
         inputWindow.value = result;
     }
 });

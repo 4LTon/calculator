@@ -1,3 +1,7 @@
+body {
+	background: linear-gradient(90deg, #ccffaa, #1e5b53);
+}
+
 .calc-row {
     height: 100vh;
     font-family: 'Share Tech Mono', monospace;
@@ -6,4 +10,52 @@
 .input-window {
     text-align: end;
     font-size: x-large;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    background-color: #067d68;
+}
+
+.form-control:focus {
+    border-color: transparent;
+}
+
+.btn.focus, .btn:focus {
+    box-shadow: none;
+}
+
+#btn_clr {
+    background-color: #70ca83;
+    color: #fff;
+}
+
+#btn_clr:hover {
+    background-color: #5dae6e;
+}
+
+.numb, .numb:focus {
+    background-color: #0f5f51;
+    color: #fff;
+    transition: .2s linear;
+}
+
+.numb:hover {
+    background-color: #1363568a;
+    border: #114f44 solid 1px;
+    color: #fff;
+    transition: .2s linear;
+}
+
+.oper, .oper:focus {
+    background-color: #1a8c77;
+    color: #fff;
+    transition: .2s linear;
+}
+
+.oper:hover {
+    background-color: #31a28dd9;
+    color: #fff;
+    transition: .2s linear;
 }
